@@ -1,0 +1,17 @@
+{
+	"name": "canonizer3",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "playwright test --headed"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@faker-js/faker": "^8.1.0",
+		"@playwright/test": "^1.38.1",
+		"@types/node": "^20.6.4"
+	}
+}
