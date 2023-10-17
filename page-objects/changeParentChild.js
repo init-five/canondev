@@ -2,8 +2,10 @@ export class ParentChildChange {
     constructor(page) {
         this.page = page;
         this.currentCampRecord = page.getByText("Current Camp Record");
-        this.manageCampButton = page.locator('id="manage-camp-btn"');
-        this.campUpdateButton = page.locator('[id="submit-update-11994"]');
+        this.manageCampButton = page.locator('[id="manage-camp-btn"]');
+        this.submitCampUpdateBasedonThisButton = page.getByText(
+            "Submit Camp Update Based On This"
+        );
         this.parentCampField = page
             .locator("span")
             .filter({ hasText: "Agreement" });
@@ -26,8 +28,8 @@ export class ParentChildChange {
         await this.currentCampRecord.click();
         await this.manageCampButton.waitFor();
         await this.manageCampButton.click();
-        await this.campUpdateButton.waitFor();
-        await this.campUpdateButton.click();
+        await this.submitCampUpdateBasedonThisButton.first().waitFor();
+        await this.submitCampUpdateBasedonThisButton.first().click();
         await this.parentCampField.waitFor();
         await this.parentCampField.nth(1).click();
         await this.selectCamp1.waitFor();

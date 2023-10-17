@@ -29,12 +29,17 @@ export class CreateNewTopic {
         this.consensusTreeButton = page.getByRole("button", {
             name: "Consensus Tree",
         });
+        this.consensusButtonState = page.locator(
+            '[class="ant-btn ant-btn-primary btnFilter drawerBtn isDrawerOpen"]'
+        );
     }
 
     closeConsensusTree = async () => {
         await this.page.waitForTimeout(3000);
-        await this.consensusTreeButton.waitFor();
-        await this.consensusTreeButton.click();
+        if (this.consensusButtonState) {
+            await this.consensusTreeButton.click();
+        }
+        //await this.consensusTreeButton.waitFor();
     };
 
     createNewTopic = async () => {
